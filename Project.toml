@@ -1,0 +1,13 @@
+name = "Scrap"
+uuid = "1b0d4bcf-c32f-481f-8309-0fd6453aeb14"
+authors = ["Hu Xinqiao"]
+version = "0.1.0"
+
+[compat]
+julia = "1.7"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
