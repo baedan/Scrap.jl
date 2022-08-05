@@ -1,0 +1,1 @@
+struct ModifyDamageEffect <: AbstractEffect end

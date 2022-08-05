@@ -1,0 +1,1 @@
+struct DiscountFoodEffect <: AbstractEffect end

@@ -1,0 +1,1 @@
+struct TransferAbilityEffect <: AbstractEffect end

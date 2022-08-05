@@ -1,0 +1,1 @@
+struct SwallowEffect <: AbstractEffect end

@@ -1,0 +1,1 @@
+struct ReduceHealthEffect <: AbstractEffect end
