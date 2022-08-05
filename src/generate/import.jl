@@ -6,7 +6,7 @@ download(url, path)
 sapdb = JSON3.read(read(path, String))
 
 pets, foods, statuses, turns = values(sapdb)
-triggers, triggeredbys, effects = Set{String}(), Set{String}(), Set{String}()
+triggers, triggeredbys, effects, statusess = Set{String}(), Set{String}(), Set{String}(), Set{String}()
 
 begin
     for pet in values(pets)
@@ -30,6 +30,7 @@ begin
             push!(triggers, String(status[:ability][:trigger]))
             push!(triggeredbys, String(status[:ability][:triggeredBy][:kind]))
             push!(effects, String(status[:ability][:effect][:kind]))
+            push!(statusess, String(status[:name]))
         end
     end
 end
@@ -73,3 +74,23 @@ for i in effects
     end
 end
 include("generated/Effects/Effects.jl")
+
+mkpath("src/generate/generated/Statuses")
+open("src/generate/generated/Statuses/Statuses.jl", "w") do f
+    println(f, """export AbstractStatus
+    abstract type AbstractStatus end""")
+    
+    for i in statusess
+        i = replace(i, " "=>"")
+        println(f, """include("$(i)Status.jl")""")
+        open("src/generate/generated/Statuses/$(i)Status.jl", "w") do g
+            println(g, """
+            export $(i)Status
+            
+            struct $(i)Status{A<:Ability} <: AbstractStatus
+                emoji::Char
+                ability::A
+            end""")
+        end
+    end
+end
