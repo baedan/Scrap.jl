@@ -2,5 +2,7 @@ using Scrap
 using Test
 
 @testset "Scrap.jl" begin
-    # Write your tests here.
+    @testset "Effects" begin
+        include("Effects/Effects.jl")
+    end
 end
