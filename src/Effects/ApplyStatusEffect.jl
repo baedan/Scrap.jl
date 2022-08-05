@@ -1,1 +1,6 @@
-struct ApplyStatusEffect <: AbstractEffect end
+export ApplyStatusEffect
+
+struct ApplyStatusEffect{S<:AbstractStatus} <: AbstractEffect
+    status::S
+    to::String
+end
