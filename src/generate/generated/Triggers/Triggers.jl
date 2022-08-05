@@ -1,0 +1,27 @@
+module Triggers
+
+include("TriggeredBys.jl")
+abstract type AbstractTrigger{TB<:AbstractTriggeredBy} end
+include("WhenDamagedTrigger.jl")
+include("EndOfTurnTrigger.jl")
+include("SellTrigger.jl")
+include("EndOfTurnWith4OrLessAnimalsTrigger.jl")
+include("FaintTrigger.jl")
+include("KnockOutTrigger.jl")
+include("StartOfTurnTrigger.jl")
+include("BeforeAttackTrigger.jl")
+include("WhenAttackingTrigger.jl")
+include("CastsAbilityTrigger.jl")
+include("BuyAfterLossTrigger.jl")
+include("EndOfTurnWithLvl3FriendTrigger.jl")
+include("SummonedTrigger.jl")
+include("EndOfTurnWith3PlusGoldTrigger.jl")
+include("BuyTier1AnimalTrigger.jl")
+include("BuyTrigger.jl")
+include("HurtTrigger.jl")
+include("AfterAttackTrigger.jl")
+include("LevelUpTrigger.jl")
+include("BuyFoodTrigger.jl")
+include("StartOfBattleTrigger.jl")
+include("EatsShopFoodTrigger.jl")
+end

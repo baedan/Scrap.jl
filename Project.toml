@@ -3,6 +3,12 @@ uuid = "1b0d4bcf-c32f-481f-8309-0fd6453aeb14"
 authors = ["Hu Xinqiao"]
 version = "0.1.0"
 
+[deps]
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
+Pluto = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
+StructTypes = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
+
 [compat]
 julia = "1.7"
 
