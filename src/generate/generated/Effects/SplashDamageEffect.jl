@@ -1,0 +1,1 @@
+struct SplashDamageEffect <: AbstractEffect end

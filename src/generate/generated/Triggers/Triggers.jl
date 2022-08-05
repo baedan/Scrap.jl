@@ -1,6 +1,5 @@
-module Triggers
-
 include("TriggeredBys.jl")
+
 abstract type AbstractTrigger{TB<:AbstractTriggeredBy} end
 include("WhenDamagedTrigger.jl")
 include("EndOfTurnTrigger.jl")
@@ -24,4 +23,3 @@ include("LevelUpTrigger.jl")
 include("BuyFoodTrigger.jl")
 include("StartOfBattleTrigger.jl")
 include("EatsShopFoodTrigger.jl")
-end

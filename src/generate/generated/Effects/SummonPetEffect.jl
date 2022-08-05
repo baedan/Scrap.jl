@@ -1,0 +1,1 @@
+struct SummonPetEffect <: AbstractEffect end

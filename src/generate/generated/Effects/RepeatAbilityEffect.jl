@@ -1,0 +1,1 @@
+struct RepeatAbilityEffect <: AbstractEffect end

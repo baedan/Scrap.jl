@@ -1,0 +1,1 @@
+struct GainGoldEffect <: AbstractEffect end

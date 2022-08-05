@@ -6,7 +6,7 @@ download(url, path)
 sapdb = JSON3.read(read(path, String))
 
 pets, foods, statuses, turns = values(sapdb)
-triggers, triggeredbys = Set{String}(), Set{String}()
+triggers, triggeredbys, effects = Set{String}(), Set{String}(), Set{String}()
 
 begin
     for pet in values(pets)
@@ -14,6 +14,7 @@ begin
 			if haskey(pet, ability)
                 push!(triggers, String(pet[ability][:trigger]))
                 push!(triggeredbys, String(pet[ability][:triggeredBy][:kind]))
+                push!(effects, String(pet[ability][:effect][:kind]))
             end
 		end
 	end
@@ -21,12 +22,14 @@ begin
 		if haskey(food, :ability)
             push!(triggers, String(food[:ability][:trigger]))
             push!(triggeredbys, String(food[:ability][:triggeredBy][:kind]))
+            push!(effects, String(food[:ability][:effect][:kind]))
         end
 	end
     for status in values(statuses)
         if haskey(status, :ability)
             push!(triggers, String(status[:ability][:trigger]))
             push!(triggeredbys, String(status[:ability][:triggeredBy][:kind]))
+            push!(effects, String(status[:ability][:effect][:kind]))
         end
     end
 end
@@ -48,7 +51,21 @@ open("src/generate/generated/Triggers/Triggers.jl", "w") do f
         end
         println(f, """include("$(i)Trigger.jl")""")
     end
-    println(f, "end")
 end
 
 include("generated/Triggers/Triggers.jl")
+
+mkpath("src/generate/generated/Effects")
+open("src/generate/generated/Effects/Effects.jl", "w") do f
+    println(f, """abstract type AbstractEffect end""")
+    for i in effects
+        println(f, """include("$(i)Effect.jl")""")
+    end
+end
+
+for i in effects
+    open("src/generate/generated/Effects/$(i)Effect.jl", "w") do f
+        println(f, "struct $(i)Effect <: AbstractEffect end")
+    end
+end
+include("generated/Effects/Effects.jl")

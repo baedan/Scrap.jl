@@ -1,0 +1,1 @@
+struct AllOfEffect <: AbstractEffect end
