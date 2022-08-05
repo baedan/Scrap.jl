@@ -1,1 +1,1 @@
-abstract type AbstractEffect end
+abstract type AbstractStatus end
