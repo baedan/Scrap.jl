@@ -47,7 +47,11 @@ open("src/generate/generated/Triggers/Triggers.jl", "w") do f
     println(f, "abstract type AbstractTrigger{TB<:AbstractTriggeredBy} end")
     for i in triggers
         open("src/generate/generated/Triggers/$(i)Trigger.jl", "w") do g
-            println(g, "struct $(i)Trigger{TB<:AbstractTriggeredBy} <: AbstractTrigger{TB} end")
+            println(g, """
+            export $(i)Trigger
+            struct $(i)Trigger{TB<:AbstractTriggeredBy} <: AbstractTrigger{TB}
+                triggeredby::TB
+            end""")
         end
         println(f, """include("$(i)Trigger.jl")""")
     end
