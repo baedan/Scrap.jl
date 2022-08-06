@@ -52,6 +52,7 @@ open("src/generate/generated/base/base.jl", "w") do f
     println(f, "abstract type AbstractTrigger{TB<:AbstractTriggeredBy} end")
     println(f, """abstract type AbstractEffect end""")
     println(f, """abstract type AbstractStatus end""")
+    println(f, "abstract type AbstractTarget end")
     println(f, """export AbstractTriggeredBy, AbstractTrigger, AbstractEffect, AbstractStatus""")
     println(f, """include("Ability/Ability.jl")""")
 end
@@ -59,6 +60,9 @@ include("generated/base/base.jl")
 
 mkpath("src/generate/generated/Triggers")
 open("src/generate/generated/Triggers/TriggeredBys.jl", "w") do f
+    for i in triggeredbys
+        println(f, "export $(i)TriggeredBy")
+    end
     for i in triggeredbys
         println(f, "struct $(i)TriggeredBy <: AbstractTriggeredBy end")
     end
