@@ -1,1 +1,0 @@
-struct FaintEffect <: AbstractEffect end

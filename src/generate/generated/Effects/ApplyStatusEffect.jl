@@ -1,1 +1,0 @@
-struct ApplyStatusEffect <: AbstractEffect end

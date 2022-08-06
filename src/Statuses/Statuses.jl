@@ -1,5 +1,3 @@
-export AbstractStatus
-abstract type AbstractStatus end
 include("SteakAttackStatus.jl")
 include("PoisonAttackStatus.jl")
 include("WeakStatus.jl")

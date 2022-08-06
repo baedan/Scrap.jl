@@ -1,1 +1,0 @@
-struct FoodMultiplierEffect <: AbstractEffect end

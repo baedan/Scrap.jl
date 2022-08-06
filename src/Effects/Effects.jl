@@ -1,4 +1,3 @@
-abstract type AbstractEffect end
 include("FoodMultiplierEffect.jl")
 include("GainExperienceEffect.jl")
 include("FaintEffect.jl")

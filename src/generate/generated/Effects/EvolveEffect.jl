@@ -1,1 +1,0 @@
-struct EvolveEffect <: AbstractEffect end

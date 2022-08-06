@@ -1,6 +1,5 @@
 include("TriggeredBys.jl")
 
-abstract type AbstractTrigger{TB<:AbstractTriggeredBy} end
 include("WhenDamagedTrigger.jl")
 include("EndOfTurnTrigger.jl")
 include("SellTrigger.jl")

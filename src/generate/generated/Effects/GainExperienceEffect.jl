@@ -1,1 +1,0 @@
-struct GainExperienceEffect <: AbstractEffect end

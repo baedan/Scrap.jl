@@ -1,1 +1,0 @@
-struct ModifyStatsEffect <: AbstractEffect end

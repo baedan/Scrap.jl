@@ -1,1 +1,0 @@
-struct DealDamageEffect <: AbstractEffect end

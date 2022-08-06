@@ -1,1 +1,0 @@
-struct RespawnPetEffect <: AbstractEffect end
